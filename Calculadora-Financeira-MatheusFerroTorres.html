@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira - Ferazian</title>
+</head>
+<body>
+    <div>
+        <h1>Calculadora Financeira - Ferazian</h1>
+        Faturamento por hectare (R$):<br>
+        <input type="number" id="id_faturamento" min="0"><br>
+
+        Número de hectares:<br>
+        <input type="number" id="id_numHectares" min="0"><br>
+
+        Aproveitamento por hectare (%):<br>
+        <input type="number" id="id_aproveitamento"><br>
+
+        <button onclick="calcular()">Calcular</button><br>
+        
+        <div id="div_mensagem"></div>
+    </div>
+
+    <script>
+        function calcular() {
+            var fatura = Number(id_faturamento.value);
+            var numHec = Number(id_numHectares.value);
+            var aprov = Number(id_aproveitamento.value);
+
+            var totalFatu = fatura * numHec;
+            var valorPerda = 100 - aprov;
+            var percental = valorPerda / 100;
+
+            var perda = fatura * percental;
+            var valorFinal = totalFatu + (totalFatu * 0.1);
+
+
+
+            if (numHec < 100) {
+                div_mensagem.innerHTML = 'O número mínimo de hectares é 100.';
+            } else {
+                div_mensagem.innerHTML = `Sem a supervisão que nossa empresa proporciona, sua fazenda experimenta uma perda de R$${perda} a cada hectare. No entanto, ao adotar nosso monitoramento, seus lucros têm o potencial de crescer de R$${totalFatu} para R$${valorFinal}.`;
+            }
+        }
+    </script>
+</body>
+</html>
