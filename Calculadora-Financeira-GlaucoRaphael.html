@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+<body>
+    <div id="div_body">
+        <h1><b>Simulador Financeiro</b></h1>
+        Quantidade de sacas de soja coletadas: <input id="inp_saca"><br>
+        Perda devido a ferrugem asiática em % <input id="inp_perda"><br>
+        Valor gasto no plantio: <input id="inp_gasto"><br>
+        <button onclick="calculo()">Calcular valor dos gastos e ganhos</button>
+    </div>
+</body>
+</html>
+
+<script>
+    function calculo(){
+        var lucro = Number(inp_saca.value) * Number(118.08);
+        var perda = Number(lucro) * (Number(inp_perda.value) / 100);
+        var perda1 = Number(perda) + Number(inp_gasto.value);
+        var lucro2 = Number(lucro) - Number(perda1);
+        div_body.innerHTML = `Estimado cliente, você coletou ${inp_saca.value} sacas de soja, gastando cerca de R$${inp_gasto.value}, mas cerca de ${inp_perda.value}% foram afetados pela ferrugem asiática.<br>
+        No total foram perdidos R$${perda1} e houve lucro de R$${lucro2}`;
+    }
+</script>
