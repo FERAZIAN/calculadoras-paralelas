@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+</head>
+<body>
+    <H1>Simulador Financeiro</H1>
+    <h3>Retorno Sobre o Investimento</h3>
+
+    Investimento inicial: <input type="text" id='input_investimento'> <br>
+    <br>
+
+    Custos operacionais: <input type="text" id='input_custosOperacionais'> <br>
+    <br>
+
+    Receita gerada (economias realizadas devido à eficiência do sistema): <input type="text" id="input_receita"><br>
+    <br>
+
+    <button onclick="calcular()">Calcular retorno</button><br>
+    <br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function calcular(){
+        var investimento = Number(input_investimento.value);
+        var custo_operacional = Number(input_custosOperacionais.value);
+        var receita = Number(input_receita.value);
+
+        var custo_investimento = investimento + custo_operacional;
+        var retorno_investimento = (receita - custo_investimento) / custo_investimento * 100;
+
+        div_mensagem.innerHTML = `O seu retorno sobre o investimento foi de ${retorno_investimento}%`
+    }
+</script>
