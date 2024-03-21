@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha calculadora</title>
+</head>
+<body>
+
+    <h1> Calculo Suporte Remoto </h1><br><br>
+    Quantos hectares a fazenda possuí? <input type="text" id="input_hectares"><br>
+    <button onclick="calcular()">Fazer orçamento</button>
+    <div id="div_message"></div>
+    
+</body>
+</html>
+<script>
+
+    function calcular(){
+
+
+        var hectares = input_hectares.value;
+
+        if(hectares < 100) {
+
+            div_message.innerHTML = `Não atendemos fazendas com menos de 100 hectares. Obrigado pelo interesse :)`;
+            
+        } else if (hectares <= 110){
+            var orcamento = 1500;
+            div_message.innerHTML = `O custo do suporte técnico sairá por R$${orcamento}`;
+        } else if (hectares <= 300){
+            var orcamento = 2500;
+            div_message.innerHTML = `O custo do suporte remoto sairá por R$${orcamento}`;
+
+        } else if (hectares <= 600) {
+            var orcamento = 3800;
+            div_message.innerHTML = `O custo do suporte remoto sairá por R$${orcamento}`;
+        } else if (hectares <= 1000){
+            var orcamento = 5500;
+             div_message.innerHTML = `O custo do suporte remoto sairá por R$${orcamento}`;
+        } else {
+
+            var orcamento = hectares * 5;
+            div_message.innerHTML = `O custo do suporte remoto sairá por R$${orcamento}`;
+        }
+
+
+
+    }
+
+        
+</script>
